@@ -1,0 +1,24 @@
+package layout
+
+templ Base(title string) {
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+        </head>
+        <body>
+            
+            <h2>{ title }</h2>
+
+            <form hx-post="/post_card" hx-target="#card-display-list">
+                Text: <input type="text" name="content"/>
+                <button type="submit">Add Diary entry</button>
+            </form>
+
+            <ul id="card-display-list">
+
+            </ul>
+        </body>
+    </html>
+}
+

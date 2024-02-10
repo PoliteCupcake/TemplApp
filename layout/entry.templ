@@ -1,0 +1,11 @@
+package layout
+
+import (
+    "time"
+)
+templ DiaryCard(content string, date time.Time) {
+    <li>
+        <h3>{ date.String() }</h3>
+        <p>{ content }</p>
+    </li>
+}
