@@ -10,13 +10,13 @@ func dateOnly (timestamp time.Time) string {
     return formattedDate
 } 
 
-css ClassName() {
-    background-color: lightgrey;
-    border: 2px double black;
-}
+// css ClassName() {
+//     background-color: lightgrey;
+//     border: 2px double black;
+// }
 
 templ DiaryCard(content string, title string, date time.Time) {
-    <li class={ ClassName() }>
+    <li class={ "diary-entry", /*ClassName()*/ }>
         <h3>{ title }</h3>
         <span>{ dateOnly(date) }</span>
         <p>{ content }</p>

@@ -9,7 +9,6 @@ import "github.com/a-h/templ"
 import "context"
 import "io"
 import "bytes"
-import "strings"
 
 import (
 	"fmt"
@@ -21,17 +20,10 @@ func dateOnly(timestamp time.Time) string {
 	return formattedDate
 }
 
-func ClassName() templ.CSSClass {
-	var templ_7745c5c3_CSSBuilder strings.Builder
-	templ_7745c5c3_CSSBuilder.WriteString(`background-color:lightgrey;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`border:2px double black;`)
-	templ_7745c5c3_CSSID := templ.CSSID(`ClassName`, templ_7745c5c3_CSSBuilder.String())
-	return templ.ComponentCSSClass{
-		ID:    templ_7745c5c3_CSSID,
-		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),
-	}
-}
-
+//	css ClassName() {
+//	    background-color: lightgrey;
+//	    border: 2px double black;
+//	}
 func DiaryCard(content string, title string, date time.Time) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
@@ -45,7 +37,7 @@ func DiaryCard(content string, title string, date time.Time) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var templ_7745c5c3_Var2 = []any{ClassName()}
+		var templ_7745c5c3_Var2 = []any{"diary-entry" /*ClassName()*/}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err

@@ -36,7 +36,7 @@ func Base(title string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</h2><form hx-post=\"/post_card\" hx-target=\"#card-display-list\" hx-swap=\"beforeend\">Title: <input type=\"text\" name=\"title\"> Text: <input type=\"textarea\" name=\"content\"> <button type=\"submit\">Add Diary entry</button></form><ul id=\"card-display-list\"></ul></body></html>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</h2><form hx-post=\"/post_card\" hx-target=\"#card-display-list\" hx-swap=\"beforeend\"><label for=\"title\">Title: <input type=\"text\" name=\"title\"></label> <label for=\"content\">Your entry: <textarea name=\"content\"></textarea></label> <button type=\"submit\">Add Diary entry</button></form><ul id=\"card-display-list\"></ul></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

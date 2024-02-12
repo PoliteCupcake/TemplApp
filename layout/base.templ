@@ -12,8 +12,12 @@ templ Base(title string) {
             <h2>{ title }</h2>
 
             <form hx-post="/post_card" hx-target="#card-display-list" hx-swap="beforeend">
-                Title: <input type="text" name="title"/>
-                Text: <input type="textarea" name="content"/>
+                <label for="title">
+                    Title: <input type="text" name="title"/>   
+                </label>
+                <label for="content">
+                    Your entry: <textarea name="content"/>
+                </label>
                 <button type="submit">Add Diary entry</button>
             </form>
 

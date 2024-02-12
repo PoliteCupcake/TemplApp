@@ -1,7 +1,38 @@
 body {
-    background-color: beige;
+    color: #F5F5F5;
+    background-color: #171717;
+    margin-top: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 20px;
+    font-family: sans-serif;
+}
+
+form {
+    display: grid;
+}
+
+.form-element {
+    border-bottom: 1px solid #353535;
 }
 
 ul {
     list-style-type: none;
+}
+
+input[type="text"], textarea {
+    background-color: #092635;
+    border: 1px solid #171717;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+li {
+    list-style: none;
+    border: 1px solid  #353535;
+    border-radius: 3px;
+    padding: 5px;
 }
