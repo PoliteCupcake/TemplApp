@@ -5,13 +5,15 @@ templ Base(title string) {
     <html>
         <head>
             <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+            <link href="static/css/styles.css" rel="stylesheet" type="text/css"/>
         </head>
         <body>
             
             <h2>{ title }</h2>
 
-            <form hx-post="/post_card" hx-target="#card-display-list">
-                Text: <input type="text" name="content"/>
+            <form hx-post="/post_card" hx-target="#card-display-list" hx-swap="beforeend">
+                Title: <input type="text" name="title"/>
+                Text: <input type="textarea" name="content"/>
                 <button type="submit">Add Diary entry</button>
             </form>
 

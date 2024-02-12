@@ -10,6 +10,7 @@ import (
 )
 
 type DiaryEntry struct {
+	Title   string
 	Content string
 	Date    time.Time
 }
@@ -27,11 +28,13 @@ func AddSampleDay(writer http.ResponseWriter, request *http.Request) {
 }
 
 func AddEntry(writer http.ResponseWriter, request *http.Request) {
-	timeStamp := time.Now()
 	request.ParseForm()
 
+	newTitle := request.FormValue("title")
+	timeStamp := time.Now()
 	newContent := request.FormValue("content")
-	entry := DiaryEntry{Content: newContent, Date: timeStamp}
-	card := layout.DiaryCard(entry.Content, entry.Date)
+
+	entry := DiaryEntry{Content: newContent, Title: newTitle, Date: timeStamp}
+	card := layout.DiaryCard(entry.Content, entry.Title, entry.Date)
 	card.Render(context.Background(), writer)
 }

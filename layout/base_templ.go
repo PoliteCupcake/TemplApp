@@ -23,20 +23,20 @@ func Base(title string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html><head><script src=\"https://unpkg.com/htmx.org@1.9.10\"></script></head><body><h2>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html><head><script src=\"https://unpkg.com/htmx.org@1.9.10\"></script><link href=\"static/css/styles.css\" rel=\"stylesheet\" type=\"text/css\"></head><body><h2>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `layout/base.templ`, Line: 10, Col: 23}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `layout/base.templ`, Line: 11, Col: 23}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</h2><form hx-post=\"/post_card\" hx-target=\"#card-display-list\">Text: <input type=\"text\" name=\"content\"> <button type=\"submit\">Add Diary entry</button></form><ul id=\"card-display-list\"></ul></body></html>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</h2><form hx-post=\"/post_card\" hx-target=\"#card-display-list\" hx-swap=\"beforeend\">Title: <input type=\"text\" name=\"title\"> Text: <input type=\"textarea\" name=\"content\"> <button type=\"submit\">Add Diary entry</button></form><ul id=\"card-display-list\"></ul></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -11,14 +11,13 @@ import (
 
 func main() {
 	fmt.Println("Main started..")
-	//entry := handler.ShowSample("Test")
 
 	landing := layout.Base("Diary")
-	//landing := Base("Title")
+
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static/"))))
 
 	http.Handle("/", templ.Handler(landing))
 	http.HandleFunc("/post_card", handler.AddEntry)
-	http.HandleFunc("/templ_test", handler.AddEntry)
 
 	fmt.Println("Starting server ...")
 	if err := http.ListenAndServe(":8080", nil); err != nil {

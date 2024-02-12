@@ -2,10 +2,23 @@ package layout
 
 import (
     "time"
+	"fmt"
 )
-templ DiaryCard(content string, date time.Time) {
-    <li>
-        <h3>{ date.String() }</h3>
+
+func dateOnly (timestamp time.Time) string {
+    formattedDate := fmt.Sprintf("%d-%d-%d", timestamp.Day(), timestamp.Month(), timestamp.Year())
+    return formattedDate
+} 
+
+css ClassName() {
+    background-color: lightgrey;
+    border: 2px double black;
+}
+
+templ DiaryCard(content string, title string, date time.Time) {
+    <li class={ ClassName() }>
+        <h3>{ title }</h3>
+        <span>{ dateOnly(date) }</span>
         <p>{ content }</p>
     </li>
 }
