@@ -1,0 +1,13 @@
+package layout
+
+templ EntryForm(){
+    <form id="entry-form" hx-post="/post_card"  hx-swap="outerHTML afterbegin">
+        <label for="title">Title:</label>
+        <input type="text" name="title"/>
+
+        <label for="content">Your entry:</label>
+        <textarea name="content"/>
+
+        <button type="submit">Save entry</button>
+    </form>
+}

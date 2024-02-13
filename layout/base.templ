@@ -7,24 +7,19 @@ templ Base(title string) {
             <script src="https://unpkg.com/htmx.org@1.9.10"></script>
             <link href="static/css/styles.css" rel="stylesheet" type="text/css"/>
         </head>
-        <body>
-            
-            <h2>{ title }</h2>
 
-            <form hx-post="/post_card" hx-target="#card-display-list" hx-swap="beforeend">
-                <label for="title">
-                    Title: <input type="text" name="title"/>   
-                </label>
-                <label for="content">
-                    Your entry: <textarea name="content"/>
-                </label>
-                <button type="submit">Add Diary entry</button>
-            </form>
+        @Header(title)
+            
+        <body>
+
+            <button class="add-entry" hx-post="/get_form" hx-swap="afterend" type="button" >Add new entry</button>
 
             <ul id="card-display-list">
-
             </ul>
         </body>
+
+        @Footer()
+
     </html>
 }
 

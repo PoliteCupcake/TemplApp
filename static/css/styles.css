@@ -10,6 +10,8 @@ body {
 
 form {
     display: grid;
+    border: 1px solid #353535;
+    padding: 2px;
 }
 
 .form-element {
@@ -23,6 +25,7 @@ ul {
 input[type="text"], textarea {
     background-color: #092635;
     border: 1px solid #171717;
+    color: #F5F5F5;
 }
 
 ul {
@@ -32,7 +35,23 @@ ul {
 
 li {
     list-style: none;
-    border: 1px solid  #353535;
+    border: 4px double #353535;
     border-radius: 3px;
     padding: 5px;
+}
+
+footer {
+    border-top: 1px solid #353535;
+    padding: 20px;
+    margin-top: 100px;
+}
+
+.add-entry{
+    width: 100%;
+    font-size: larger;
+    padding: 2px;
+    background-color:#092635;
+    color: #f5f5f5;
+    border: 3px solid #F5F5F5;
+    border-radius: 4px;
 }

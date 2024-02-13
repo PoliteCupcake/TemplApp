@@ -2,7 +2,6 @@ package handler
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 	"time"
 
@@ -15,18 +14,6 @@ type DiaryEntry struct {
 	Date    time.Time
 }
 
-func ShowSample(content string) DiaryEntry {
-	timeStamp := time.Now()
-	entry := DiaryEntry{Content: content, Date: timeStamp}
-	return entry
-}
-
-func AddSampleDay(writer http.ResponseWriter, request *http.Request) {
-	timeStamp := time.Now()
-	entry := DiaryEntry{Content: "Content woohoo", Date: timeStamp}
-	fmt.Fprintf(writer, entry.Content)
-}
-
 func AddEntry(writer http.ResponseWriter, request *http.Request) {
 	request.ParseForm()
 
@@ -37,4 +24,9 @@ func AddEntry(writer http.ResponseWriter, request *http.Request) {
 	entry := DiaryEntry{Content: newContent, Title: newTitle, Date: timeStamp}
 	card := layout.DiaryCard(entry.Content, entry.Title, entry.Date)
 	card.Render(context.Background(), writer)
+}
+
+func GetForm(writer http.ResponseWriter, request *http.Request) {
+	form := layout.EntryForm()
+	form.Render(context.Background(), writer)
 }
