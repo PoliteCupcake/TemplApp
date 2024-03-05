@@ -10,6 +10,13 @@ import "context"
 import "io"
 import "bytes"
 
+func EntryFormToggle(recent bool) bool {
+	if recent {
+		return false
+	}
+	return true
+}
+
 func EntryForm() templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
@@ -23,7 +30,7 @@ func EntryForm() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<form id=\"entry-form\" hx-post=\"/post_card\" hx-swap=\"outerHTML afterbegin\"><label for=\"title\">Title:</label> <input type=\"text\" name=\"title\"> <label for=\"content\">Your entry:</label> <textarea name=\"content\"></textarea> <button type=\"submit\">Save entry</button></form>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<form id=\"entry-form\" hx-post=\"/post_card\" hx-target=\"#card-display-list\" hx-swap=\"innerHTML afterbegin\"><label for=\"title\">Title:</label> <input type=\"text\" name=\"title\"> <label for=\"content\">Your entry:</label> <textarea name=\"content\"></textarea> <button type=\"submit\">Save entry</button></form>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

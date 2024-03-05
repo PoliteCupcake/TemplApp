@@ -1,7 +1,14 @@
 package layout
 
+func EntryFormToggle(recent bool) bool {
+    if recent {
+        return false
+    }
+    return true
+}
+
 templ EntryForm(){
-    <form id="entry-form" hx-post="/post_card"  hx-swap="outerHTML afterbegin">
+    <form id="entry-form" hx-post="/post_card" hx-target="#card-display-list" hx-swap="innerHTML afterbegin">
         <label for="title">Title:</label>
         <input type="text" name="title"/>
 

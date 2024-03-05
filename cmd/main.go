@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Main started..")
+	fmt.Println("Server started..")
 
 	landing := layout.Base("Diary")
 
@@ -21,10 +21,10 @@ func main() {
 	http.HandleFunc("/post_card", handler.AddEntry)
 
 	fmt.Println("Starting server ...")
+	fmt.Println("Running on localhost 8080")
+	fmt.Println("Waiting for Requests ...")
+
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		fmt.Println("Server shutdown")
 	}
-
-	fmt.Println("Waiting for Requests ...")
-
 }

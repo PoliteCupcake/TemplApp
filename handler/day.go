@@ -18,8 +18,8 @@ func AddEntry(writer http.ResponseWriter, request *http.Request) {
 	request.ParseForm()
 
 	newTitle := request.FormValue("title")
-	timeStamp := time.Now()
 	newContent := request.FormValue("content")
+	timeStamp := time.Now()
 
 	entry := DiaryEntry{Content: newContent, Title: newTitle, Date: timeStamp}
 	card := layout.DiaryCard(entry.Content, entry.Title, entry.Date)
