@@ -1,6 +1,7 @@
 package layout
 
 import (
+    "strconv"
     "time"
 	"fmt"
 )
@@ -15,8 +16,8 @@ func dateOnly (timestamp time.Time) string {
 //     border: 2px double black;
 // }
 
-templ DiaryCard(content string, title string, date time.Time) {
-    <li class={ "diary-entry", /*ClassName()*/ }>
+templ DiaryCard(content string, title string, date time.Time, id int64) {
+    <li id={ strconv.FormatInt(id, 10) }class={ "diary-entry", /*ClassName()*/ }>
         <h3>{ title }</h3>
         <span>{ dateOnly(date) }</span>
         <p>{ content }</p>

@@ -17,7 +17,6 @@ func main() {
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static/"))))
 
 	http.Handle("/", templ.Handler(landing))
-	http.HandleFunc("/get_form", handler.GetForm)
 	http.HandleFunc("/post_card", handler.AddEntry)
 
 	fmt.Println("Starting server ...")

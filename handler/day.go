@@ -12,6 +12,7 @@ type DiaryEntry struct {
 	Title   string
 	Content string
 	Date    time.Time
+	Id      int64
 }
 
 func AddEntry(writer http.ResponseWriter, request *http.Request) {
@@ -20,9 +21,10 @@ func AddEntry(writer http.ResponseWriter, request *http.Request) {
 	newTitle := request.FormValue("title")
 	newContent := request.FormValue("content")
 	timeStamp := time.Now()
+	id := timeStamp.Unix()
 
-	entry := DiaryEntry{Content: newContent, Title: newTitle, Date: timeStamp}
-	card := layout.DiaryCard(entry.Content, entry.Title, entry.Date)
+	entry := DiaryEntry{Content: newContent, Title: newTitle, Date: timeStamp, Id: id}
+	card := layout.DiaryCard(entry.Content, entry.Title, entry.Date, entry.Id)
 	card.Render(context.Background(), writer)
 }
 

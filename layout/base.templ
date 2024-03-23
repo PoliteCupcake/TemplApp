@@ -12,8 +12,7 @@ templ Base(title string) {
             
         <body>
 
-            <button class="add-entry" hx-post="/get_form" hx-swap="afterend" type="button" >Add new entry</button>
-
+            @EntryForm()
             <ul id="card-display-list">
             </ul>
         </body>

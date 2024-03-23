@@ -1,0 +1,5 @@
+# Exclude docker 
+compose.yaml
+# Exclude .templ.go files 
+layout/*_templ.go
+# Exclude configuration files

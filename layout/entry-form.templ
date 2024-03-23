@@ -8,7 +8,7 @@ func EntryFormToggle(recent bool) bool {
 }
 
 templ EntryForm(){
-    <form id="entry-form" hx-post="/post_card" hx-target="#card-display-list" hx-swap="innerHTML afterbegin">
+    <form id="entry-form" hx-post="/post_card" hx-target="#card-display-list" hx-swap="afterbegin">
         <label for="title">Title:</label>
         <input type="text" name="title"/>
 
